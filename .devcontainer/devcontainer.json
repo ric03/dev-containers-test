@@ -1,17 +1,21 @@
 {
   "name": "Node.js",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:latest",
+//  "image": "mcr.microsoft.com/devcontainers/javascript-node:latest",
+  build: {
+    dockerfile: "Dockerfile"
+  },
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},
 
-  "customizations": {
-    "jetbrains": {
-      "backend": "IntelliJ",
-      "plugins": [
-        "JavaScript"
-      ],
+  customizations: {
+    jetbrains: {
+      backend: "IntelliJ",
+      plugins: [
+        "com.intellij.java",
+        "com.intellij.gradle",
+      ]
     }
   },
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "java --version"
 }
